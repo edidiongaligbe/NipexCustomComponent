@@ -3,14 +3,13 @@ const generator = require("generate-password");
 const mysql = require("promise-mysql");
 const Promise = require("bluebird");
 const md5 = require("crypto-js/md5");
-const EmailService = require("../services/EmailService");
 const soap = require("soap");
 let util = require("util");
 
 const {VRSDB, JQSDB} = require('../db')
 module.exports = {
   metadata: () => ({
-    name: "CodeEntryt",
+    name: "CodeEntry",
     properties: {
       code: {
         required: true,

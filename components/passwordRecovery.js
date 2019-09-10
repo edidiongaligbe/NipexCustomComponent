@@ -1,7 +1,6 @@
 /* eslint-disable */
 const generator = require("random-number");
 const mysql = require("promise-mysql");
-const EmailService = require("../services/EmailService");
 const soap = require("soap");
 let util = require("util");
 let path = require("path");
@@ -9,7 +8,7 @@ const { VRSDB, JQSDB } = require('../db')
 
 module.exports = {
   metadata: () => ({
-    name: "PasswordRecoveryt",
+    name: "PasswordRecovery",
     properties: {
       SupplierID: {
         required: true,

@@ -1,45 +1,22 @@
 {
-  "name": "my-custom-component",
-  "version": "1.0.0",
-  "description": "Oracle Bots Custom Component Package",
-  "main": "main.js",
+  "name": "nipexcc",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "bots-node-sdk": "bots-node-sdk",
-    "help": "npm run bots-node-sdk -- --help",
-    "prepack": "npm run bots-node-sdk -- --pack --dry-run",
-    "start": "npm run bots-node-sdk -- --service ."
+    "start": "node ./bin/www"
   },
-  "repository": {},
   "dependencies": {
-    "@sendgrid/mail": "^6.4.0",
-    "axios": "^0.18.0",
-    "bluebird": "^3.5.3",
-    "crypto-js": "^3.1.9-1",
-    "cryptojs": "^2.5.3",
-    "email-templates": "^5.0.2",
-    "faker": "^4.1.0",
-    "generate-password": "^1.4.1",
-    "ip": "^1.1.5",
-    "moment": "latest",
-    "mongoose": "^5.5.8",
-    "mysql": "^2.16.0",
-    "node-fetch": "^2.3.0",
-    "node-soap": "^1.0.0",
-    "nodemailer": "^4.7.0",
-    "nodemailer-sendgrid": "^1.0.3",
-    "nodemailer-smtp-transport": "^2.7.4",
-    "promise-mysql": "^3.3.1",
-    "pug": "^2.0.3",
-    "random-number": "0.0.9",
-    "ravepay": "^1.2.0",
-    "redis": "^2.8.0",
-    "soap": "^0.26.0"
-  },
-  "devDependencies": {
     "@oracle/bots-node-sdk": "^2.2.1",
-    "express": "^4.16.3"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "bluebird": "^3.5.5",
+    "cookie-parser": "~1.4.4",
+    "crypto-js": "^3.1.9-1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "generate-password": "^1.4.2",
+    "md5": "^2.2.1",
+    "morgan": "~1.9.1",
+    "promise-mysql": "^4.1.0",
+    "random-number": "0.0.9",
+    "soap": "^0.29.0"
+  }
 }
