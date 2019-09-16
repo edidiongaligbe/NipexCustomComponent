@@ -138,7 +138,7 @@ module.exports = {
                         //   "PasswordRecovery"
                         // );
                         let reply = `${email}%${password}%${name}%PasswordRecovery`;
-                        conversation.reply(reply);
+                        conversation.variable('resultFromPasswordGeneration', reply);
                         conversation.keepTurn(true);
                         conversation.transition();
                         done();
@@ -221,7 +221,7 @@ module.exports = {
                           //   "PasswordRecovery"
                           // );
                           let reply = `${email}%${password}%no_value%PasswordRecovery`;
-                          conversation.reply(reply);
+                          conversation.variable('resultFromPasswordGeneration', reply);
                           conversation.keepTurn(true);
                           conversation.transition();
                           done();
@@ -260,7 +260,7 @@ module.exports = {
                           //   "PasswordRecovery"
                           // );
                           let reply = `${email}%${password}%no_value%PasswordRecovery`;
-                          conversation.reply(reply);
+                          conversation.variable('resultFromPasswordGeneration', reply);
                           conversation.keepTurn(true);
                           conversation.transition();
                           done();
@@ -359,7 +359,7 @@ module.exports = {
                           //   "PasswordRecovery"
                           // );
                           let reply = `${email}%${result.ExPassword}%no_value%PasswordRecovery`;
-                          conversation.reply(reply);
+                          conversation.variable('resultFromPasswordGeneration', reply);
                           conversation.keepTurn(true);
                           conversation.transition();
                           done();
