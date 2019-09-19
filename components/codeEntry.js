@@ -9,7 +9,7 @@ let util = require("util");
 const {VRSDB, JQSDB} = require('../db')
 module.exports = {
   metadata: () => ({
-    name: "CodeEntry",
+    name: "CodeEntryy",
     properties: {
       code: {
         required: true,

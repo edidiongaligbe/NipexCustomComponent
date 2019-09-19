@@ -8,7 +8,7 @@ const { VRSDB, JQSDB } = require('../db')
 
 module.exports = {
   metadata: () => ({
-    name: "PasswordRecoveryq",
+    name: "PasswordRecoveryy",
     properties: {
       SupplierID: {
         required: true,
