@@ -4,6 +4,7 @@ const mysql = require("promise-mysql");
 const Promise = require("bluebird");
 const md5 = require("crypto-js/md5");
 const soap = require("soap");
+var path = require('path');
 let util = require("util");
 
 const {VRSDB, JQSDB} = require('../db')
@@ -288,7 +289,8 @@ module.exports = {
 
             connection.end();
           });
-      } else if (SystemType == "SAP e-Markets") {
+      } else if (SystemType == "NipeX e-Market") {
+        console.log(SystemType)
         mysql
           .createConnection({
             host: JQSDB.host,
@@ -310,31 +312,25 @@ module.exports = {
               console.log(email, SupplierID);
 
               // var url =       "http://trn.nipex-ng.com:8080/sap/bc/srt/wsdl/bndg_5C7D64A46D811CE9E1000000C0A8010D/wsdl11/allinone/ws_policy/document?sap-client=310";
-              let url = path.join(__dirname, "..", "Prod_Pwd.wsdl");
               var auth =
-                "Basic " +
-                new Buffer("bot_user" + ":" + "Robot@123").toString("base64");
-              
-              soap.createClient(
-                url,
-                {
-                  wsdl_headers: {
-                    Authorization: auth
-                  },
-                  endpoint: "http://nepsap.nipexng.com:8200/sap/bc/srt/rfc/sap/zpassword_reset_ws/500/zbinding1/zbinding1"
-                    // "http://trn.nipex-ng.com:8080/sap/bc/srt/rfc/sap/zpassword_reset_ws/310/zbinding1/zbinding1"
+              "Basic " +
+              new Buffer.from("bot_user" + ":" + "Robot@123").toString("base64");
+            let url = path.join(__dirname, "..", "Password_Request_WS.wsdl");
+            console.log("urrrrllrlrl", url);
+            soap.createClient(
+              url,
+              {
+                wsdl_headers: {
+                  Authorization: auth
                 },
+                endpoint: "http://secure.nipex-ng.com:8191/sap/bc/srt/rfc/sap/zpassword_reset_ws/500/zbinding1/zbinding1"
+                // "http://trn.nipex-ng.com:8080/sap/bc/srt/rfc/sap/zrequest_supplier_email_ws/310/zrequest_supp_email/zbinding1"
+                //   "http://trn.nipex-ng.com:8080/sap/bc/srt/rfc/sap/zpassword_reset_ws/310/zbinding1/zbinding1"
+              },
                 function(err, client) {
                   client.setSecurity(
                     new soap.BasicAuthSecurity("bot_user", "Robot@123")
                   );
-
-                  // console.log(client.describe());
-                  // console.log(
-                  //   util.inspect(client.describe(), {
-                  //     depth: 20
-                  //   })
-                  // );
 
                   client.ZBINDING1.ZBINDING1.ZresetUserPassword(
                     {

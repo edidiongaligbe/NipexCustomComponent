@@ -362,7 +362,7 @@ module.exports = {
             done();
           }
         });
-    } else if (SystemType == "SAP e-Markets") {
+    } else if (SystemType == "NipeX e-Market") {
       console.log("In Sap emarkets", SystemType);
       let users = {
         NIPEXBID11: "afreeman@softalliance.com",
@@ -391,7 +391,7 @@ module.exports = {
             // var url ="http://trn.nipex-ng.com:8080/sap/bc/srt/wsdl/bndg_5C7D64A46D811CE9E1000000C0A8010D/wsdl11/allinone/ws_policy/document?sap-client=310";
             var auth =
               "Basic " +
-              new Buffer("bot_user" + ":" + "Robot@123").toString("base64");
+              new Buffer.from("bot_user" + ":" + "Robot@123").toString("base64");
             let url = path.join(__dirname, "..", "Prod_Email_Req.WSDL");
             console.log("urrrrllrlrl", url);
             soap.createClient(
@@ -400,7 +400,7 @@ module.exports = {
                 wsdl_headers: {
                   Authorization: auth
                 },
-                endpoint: "http://nepsap.nipexng.com:8200/sap/bc/srt/rfc/sap/zrequest_supplier_email_ws/500/zbot_request_email/zbinding1"
+                endpoint: "http://secure.nipex-ng.com:8191/sap/bc/srt/rfc/sap/zrequest_supplier_email_ws/500/zbot_request_email/zbinding1"
                 // "http://trn.nipex-ng.com:8080/sap/bc/srt/rfc/sap/zrequest_supplier_email_ws/310/zrequest_supp_email/zbinding1"
                 //   "http://trn.nipex-ng.com:8080/sap/bc/srt/rfc/sap/zpassword_reset_ws/310/zbinding1/zbinding1"
               },
